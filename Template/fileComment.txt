@@ -1,0 +1,7 @@
+//
+//  %@.h
+//  %@
+//
+//  Created by %@ on %@.
+//  Copyright © %@年 %@. All rights reserved.
+//
