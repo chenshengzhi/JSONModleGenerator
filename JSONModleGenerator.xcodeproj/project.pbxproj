@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C30B58021CCB12A300511D05 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = C30B58041CCB12A300511D05 /* Localization.strings */; };
 		C311189F1CCA617300BACF95 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C311189E1CCA617300BACF95 /* AppDelegate.m */; };
 		C31118A21CCA617300BACF95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C31118A11CCA617300BACF95 /* main.m */; };
 		C31118A51CCA617300BACF95 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C31118A41CCA617300BACF95 /* ViewController.m */; };
@@ -48,6 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C30B58061CCB12CA00511D05 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localization.strings"; sourceTree = "<group>"; };
+		C30B58071CCB131300511D05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
+		C30B580B1CCB134400511D05 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C30B58101CCB147D00511D05 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		C30B58111CCB14FF00511D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localization.strings; sourceTree = "<group>"; };
+		C30B58121CCB151500511D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C311189A1CCA617300BACF95 /* JSONModleGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONModleGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C311189D1CCA617300BACF95 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C311189E1CCA617300BACF95 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -55,7 +62,6 @@
 		C31118A31CCA617300BACF95 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		C31118A41CCA617300BACF95 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C31118A61CCA617300BACF95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C31118A91CCA617300BACF95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C31118AB1CCA617300BACF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C31118B01CCA617300BACF95 /* JSONModleGeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONModleGeneratorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31118B41CCA617300BACF95 /* JSONModleGeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONModleGeneratorTests.m; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				C31118A11CCA617300BACF95 /* main.m */,
+				C30B58041CCB12A300511D05 /* Localization.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -306,6 +313,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = C31118911CCA617300BACF95;
 			productRefGroup = C311189B1CCA617300BACF95 /* Products */;
@@ -329,6 +337,7 @@
 				C31119181CCA63B400BACF95 /* interface.txt in Resources */,
 				C31118A71CCA617300BACF95 /* Assets.xcassets in Resources */,
 				C31119151CCA63B400BACF95 /* classInArray.txt in Resources */,
+				C30B58021CCB12A300511D05 /* Localization.strings in Resources */,
 				C31119191CCA63B400BACF95 /* keyMapping.txt in Resources */,
 				C31118AA1CCA617300BACF95 /* Main.storyboard in Resources */,
 			);
@@ -402,10 +411,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C30B58041CCB12A300511D05 /* Localization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C30B58061CCB12CA00511D05 /* zh-Hans */,
+				C30B58071CCB131300511D05 /* en */,
+				C30B58111CCB14FF00511D05 /* Base */,
+			);
+			name = Localization.strings;
+			sourceTree = "<group>";
+		};
 		C31118A81CCA617300BACF95 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C31118A91CCA617300BACF95 /* Base */,
+				C30B580B1CCB134400511D05 /* en */,
+				C30B58101CCB147D00511D05 /* zh-Hans */,
+				C30B58121CCB151500511D05 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -587,6 +608,7 @@
 				C31118C61CCA617300BACF95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C31118C71CCA617300BACF95 /* Build configuration list for PBXNativeTarget "JSONModleGeneratorTests" */ = {
 			isa = XCConfigurationList;
@@ -595,6 +617,7 @@
 				C31118C91CCA617300BACF95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C31118CA1CCA617300BACF95 /* Build configuration list for PBXNativeTarget "JSONModleGeneratorUITests" */ = {
 			isa = XCConfigurationList;
@@ -603,6 +626,7 @@
 				C31118CC1CCA617300BACF95 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

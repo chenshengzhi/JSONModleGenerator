@@ -11,6 +11,8 @@
 #import "JSONGeneratorParameter.h"
 #import "NSString+Trims.h"
 
+NSString *const kFileCommentInfoSaveKey = @"kFileCommentInfo";
+
 @interface ViewController ()
 
 @property (nonatomic, strong) JSONGenerator *generator;
@@ -30,7 +32,7 @@
     
     _storedFieldArray = @[_projectNameField, _authorField, _organizationField, _superClassNameField];
     
-    _fileCommentInfo = [[[NSUserDefaults standardUserDefaults] arrayForKey:@"kFileCommentInfo"] mutableCopy];
+    _fileCommentInfo = [[[NSUserDefaults standardUserDefaults] arrayForKey:kFileCommentInfoSaveKey] mutableCopy];
     if (_fileCommentInfo.count != _storedFieldArray.count) {
         _fileCommentInfo = [NSMutableArray array];
         for (int i = 0; i < _storedFieldArray.count; i++) {
@@ -45,37 +47,37 @@
 }
 
 - (IBAction)generateJSON:(id)sender {
-    if ([_jsonTextView.string trimmingWhitespaceAndNewlines].length == 0) {
-        [self alertErrorText:@"请输入JSON数据"];
-        return;
-    }
-    
-    if ([_fileNameField.stringValue trimmingWhitespaceAndNewlines].length == 0) {
-        [self alertErrorText:@"请输入要生成的文件名称"];
-        return;
-    }
-    
     if ([_projectNameField.stringValue trimmingWhitespaceAndNewlines].length == 0) {
-        [self alertErrorText:@"请输入项目名称"];
+        [self alertErrorText:NSLocalizedString(@"请输入项目名称", nil)];
         return;
     }
     
     if ([_authorField.stringValue trimmingWhitespaceAndNewlines].length == 0) {
-        [self alertErrorText:@"请输入作者"];
+        [self alertErrorText:NSLocalizedString(@"请输入作者", nil)];
         return;
     }
     
     if ([_organizationField.stringValue trimmingWhitespaceAndNewlines].length == 0) {
-        [self alertErrorText:@"请输入团队名称"];
+        [self alertErrorText:NSLocalizedString(@"请输入团队名称", nil)];
         return;
     }
     
     if ([_superClassNameField.stringValue trimmingWhitespaceAndNewlines].length == 0) {
-        [self alertErrorText:@"请输入父类名称"];
+        [self alertErrorText:NSLocalizedString(@"请输入父类名称", nil)];
         return;
     }
     
     [self saveFileCommentInfoIfChanged];
+    
+    if ([_jsonTextView.string trimmingWhitespaceAndNewlines].length == 0) {
+        [self alertErrorText:NSLocalizedString(@"请输入JSON数据", nil)];
+        return;
+    }
+    
+    if ([_fileNameField.stringValue trimmingWhitespaceAndNewlines].length == 0) {
+        [self alertErrorText:NSLocalizedString(@"请输入要生成的文件名称", nil)];
+        return;
+    }
     
     JSONGeneratorParameter *parameter = [[JSONGeneratorParameter alloc] init];
     parameter.json = _jsonTextView.string;
@@ -103,7 +105,7 @@
         for (NSTextField *field in _storedFieldArray) {
             [_fileCommentInfo addObject:field.stringValue];
         }
-        [[NSUserDefaults standardUserDefaults] setObject:_fileCommentInfo forKey:@"kFileCommentInfo"];
+        [[NSUserDefaults standardUserDefaults] setObject:_fileCommentInfo forKey:kFileCommentInfoSaveKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }

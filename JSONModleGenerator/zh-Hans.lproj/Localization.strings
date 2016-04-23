@@ -1,0 +1,14 @@
+/* 
+  Localization.strings
+  JSONModleGenerator
+
+  Created by shengzhichen on 16/4/23.
+  Copyright © 2016年 富德胜. All rights reserved.
+*/
+
+"请输入项目名称" = "请输入项目名称";
+"请输入作者" = "请输入作者";
+"请输入团队名称" = "请输入团队名称";
+"请输入父类名称" = "请输入父类名称";
+"请输入JSON数据" = "请输入JSON数据";
+"请输入要生成的文件名称" = "请输入要生成的文件名称";
