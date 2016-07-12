@@ -76,13 +76,7 @@
             [propertys appendString:[NSString stringWithFormat:@"@property (nonatomic, strong) NSArray *%@;\n\n", modelKey]];
             classInArray[modelKey] = newClassName;
         } else {
-            if ([obj isFloat]) {
-                [propertys appendFormat:@"@property (nonatomic) double %@;\n\n", modelKey];
-            } else if ([obj isInt]) {
-                [propertys appendFormat:@"@property (nonatomic) long long %@;\n\n", modelKey];
-            } else {
-                [propertys appendFormat:@"@property (nonatomic, strong) NSString *%@;\n\n", modelKey];
-            }
+            [propertys appendFormat:@"@property (nonatomic, strong) NSString *%@;\n\n", modelKey];
         }
     }];
     
@@ -121,6 +115,10 @@
     
     [interface appendString:fileComment];
     [interface appendString:@"\n\n#import <Foundation/Foundation.h>"];
+
+    if (self.parameter.superClassName) {
+        [interface appendFormat:@"\n#import \"%@.h\"", self.parameter.superClassName];
+    }
     
     [implementation appendString:fileComment];
     [implementation appendFormat:@"\n\n#import \"%@.h\"", self.parameter.fileName];
