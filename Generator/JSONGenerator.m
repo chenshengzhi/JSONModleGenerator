@@ -24,6 +24,7 @@
 - (id)JSONFromDescriptionText:(NSString *)description {
     description = [description replace:@"(" withString:@"["];
     description = [description replace:@")" withString:@"]"];
+    description = [description replace:@"\\" withString:@""];
     description = [description replace:@" " withString:@""];
     
     NSArray<NSString *> *pairs = [description componentsSeparatedByString:@"\n"];
