@@ -24,24 +24,27 @@
 - (id)JSONFromDescriptionText:(NSString *)description {
     description = [description replace:@"(" withString:@"["];
     description = [description replace:@")" withString:@"]"];
-    description = [description replace:@"\\" withString:@""];
     description = [description replace:@" " withString:@""];
     
     NSArray<NSString *> *pairs = [description componentsSeparatedByString:@"\n"];
     NSMutableArray *newPairs = [NSMutableArray array];
     [pairs enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSArray *components = [obj componentsSeparatedByString:@"="];
-        if (components.count == 2) {
-            NSString *key = components[0];
+        BOOL hasSemicolon = [obj hasSuffix:@";"];
+        NSRange equalSignRange = [obj rangeOfString:@"="];
+        if (equalSignRange.location != NSNotFound) {
+            NSString *key = [obj substringToIndex:equalSignRange.location];
+            NSString *value = [obj substringFromIndex:NSMaxRange(equalSignRange)];
+
             if (![key hasPrefix:@"\""]) {
                 key = [NSString stringWithFormat:@"\"%@\"", key];
             }
-            NSString *value = [components[1] replace:@";" withString:@""];
-            if (![value hasPrefix:@"\""] && ![value isEqualToString:@"{"] && ![value isEqualToString:@"["]) {
-                value = [NSString stringWithFormat:@"\"%@\"", value];
+
+            if ([value isEqualToString:@"{"] || [value isEqualToString:@"["]) {
+                [newPairs addObject:[NSString stringWithFormat:@"%@:%@", key, value]];
+            } else {
+                NSString *convertedLine = [NSString stringWithFormat:@"%@:1%@", key, (hasSemicolon ? @"," : @"")];
+                [newPairs addObject:convertedLine];
             }
-            NSString *convertedLine = [NSString stringWithFormat:@"%@:%@%@", key, value, ([components[1] hasSuffix:@";"] ? @"," : @"")];
-            [newPairs addObject:convertedLine];
         } else {
             [newPairs addObject:obj];
         }
