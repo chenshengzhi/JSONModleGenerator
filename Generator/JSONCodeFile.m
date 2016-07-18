@@ -73,8 +73,8 @@
             [propertys appendFormat:@"@property (nonatomic, strong) %@ *%@;\n\n", newClassName, modelKey];
         } else if (isArray(obj)) {
             NSString *newClassName = [className stringByAppendingString:[modelKey capitalizedString]];
+            [propertys appendString:[NSString stringWithFormat:@"@property (nonatomic, strong) NSArray *%@;\n\n", modelKey]];
             if ([self parseArrayElementWithClassName:newClassName subJSON:obj]) {
-                [propertys appendString:[NSString stringWithFormat:@"@property (nonatomic, strong) NSArray *%@;\n\n", modelKey]];
                 classInArray[modelKey] = newClassName;
             }
         } else {
