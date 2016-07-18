@@ -42,16 +42,17 @@
     }
 }
 
-- (void)parseArrayElementWithClassName:(NSString *)className subJSON:(NSArray *)subJson {
+- (BOOL)parseArrayElementWithClassName:(NSString *)className subJSON:(NSArray *)subJson {
     if (isDictionary(subJson.firstObject)) {
         NSDictionary *dict = subJson.firstObject;
-        [self parseDictionaryElementWithClassName:className subJSON:dict];
+        return [self parseDictionaryElementWithClassName:className subJSON:dict];
     } else if (isArray(subJson.firstObject)) {
         NSAssert(NO, @"do not support this model");
     }
+    return NO;
 }
 
-- (void)parseDictionaryElementWithClassName:(NSString *)className subJSON:(NSDictionary *)subJson {
+- (BOOL)parseDictionaryElementWithClassName:(NSString *)className subJSON:(NSDictionary *)subJson {
     NSMutableString *propertys = [NSMutableString string];
     NSMutableDictionary *classInArray = [NSMutableDictionary dictionary];
     NSMutableDictionary *keyMapping = [NSMutableDictionary dictionary];
@@ -72,9 +73,10 @@
             [propertys appendFormat:@"@property (nonatomic, strong) %@ *%@;\n\n", newClassName, modelKey];
         } else if (isArray(obj)) {
             NSString *newClassName = [className stringByAppendingString:[modelKey capitalizedString]];
-            [self parseArrayElementWithClassName:newClassName subJSON:obj];
-            [propertys appendString:[NSString stringWithFormat:@"@property (nonatomic, strong) NSArray *%@;\n\n", modelKey]];
-            classInArray[modelKey] = newClassName;
+            if ([self parseArrayElementWithClassName:newClassName subJSON:obj]) {
+                [propertys appendString:[NSString stringWithFormat:@"@property (nonatomic, strong) NSArray *%@;\n\n", modelKey]];
+                classInArray[modelKey] = newClassName;
+            }
         } else {
             [propertys appendFormat:@"@property (nonatomic, strong) NSString *%@;\n\n", modelKey];
         }
@@ -88,6 +90,7 @@
     element.keyMapping = keyMapping;
     
     [self.classArray addObject:element];
+    return YES;
 }
 
 - (void)generateCodeFile {

@@ -29,7 +29,6 @@
     NSArray<NSString *> *pairs = [description componentsSeparatedByString:@"\n"];
     NSMutableArray *newPairs = [NSMutableArray array];
     [pairs enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        BOOL hasSemicolon = [obj hasSuffix:@";"];
         NSRange equalSignRange = [obj rangeOfString:@"="];
         if (equalSignRange.location != NSNotFound) {
             NSString *key = [obj substringToIndex:equalSignRange.location];
@@ -42,7 +41,7 @@
             if ([value isEqualToString:@"{"] || [value isEqualToString:@"["]) {
                 [newPairs addObject:[NSString stringWithFormat:@"%@:%@", key, value]];
             } else {
-                NSString *convertedLine = [NSString stringWithFormat:@"%@:1%@", key, (hasSemicolon ? @"," : @"")];
+                NSString *convertedLine = [NSString stringWithFormat:@"%@:1%@", key, (idx < pairs.count-1 ? @"," : @"")];
                 [newPairs addObject:convertedLine];
             }
         } else {

@@ -30,7 +30,7 @@ NSString *const kFileCommentInfoSaveKey = @"kFileCommentInfo";
         
     _generator = [[JSONGenerator alloc] init];
     
-    _storedFieldArray = @[_projectNameField, _authorField, _organizationField, _superClassNameField];
+    _storedFieldArray = @[_fileNameField, _projectNameField, _authorField, _organizationField, _superClassNameField];
     
     _fileCommentInfo = [[[NSUserDefaults standardUserDefaults] arrayForKey:kFileCommentInfoSaveKey] mutableCopy];
     if (_fileCommentInfo.count != _storedFieldArray.count) {
@@ -66,16 +66,16 @@ NSString *const kFileCommentInfoSaveKey = @"kFileCommentInfo";
         [self alertErrorText:NSLocalizedString(@"请输入父类名称", nil)];
         return;
     }
+
+    if ([_fileNameField.stringValue trimmingWhitespaceAndNewlines].length == 0) {
+        [self alertErrorText:NSLocalizedString(@"请输入要生成的文件名称", nil)];
+        return;
+    }
     
     [self saveFileCommentInfoIfChanged];
     
     if ([_jsonTextView.string trimmingWhitespaceAndNewlines].length == 0) {
         [self alertErrorText:NSLocalizedString(@"请输入JSON数据", nil)];
-        return;
-    }
-    
-    if ([_fileNameField.stringValue trimmingWhitespaceAndNewlines].length == 0) {
-        [self alertErrorText:NSLocalizedString(@"请输入要生成的文件名称", nil)];
         return;
     }
     
