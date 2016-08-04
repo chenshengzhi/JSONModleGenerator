@@ -56,8 +56,10 @@
     NSMutableString *propertys = [NSMutableString string];
     NSMutableDictionary *classInArray = [NSMutableDictionary dictionary];
     NSMutableDictionary *keyMapping = [NSMutableDictionary dictionary];
-    
-    [subJson enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+
+    NSArray *sortedKeys = [subJson.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    for (NSString *key in sortedKeys) {
+        id obj = subJson[key];
         NSString *modelKey = key;
         if ([modelKey containsString:@"_"]) {
             modelKey = [modelKey littleCamelCase];
@@ -66,7 +68,7 @@
             modelKey = @"ID";
             keyMapping[modelKey]  = key;
         }
-        
+
         if (isDictionary(obj)) {
             NSString *newClassName = [className stringByAppendingString:[modelKey capitalizedString]];
             [self parseDictionaryElementWithClassName:newClassName subJSON:obj];
@@ -80,7 +82,7 @@
         } else {
             [propertys appendFormat:@"@property (nonatomic, strong) NSString *%@;\n\n", modelKey];
         }
-    }];
+    }
     
     JSONCodeFileElement *element = [[JSONCodeFileElement alloc] init];
     element.className = className;
