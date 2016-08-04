@@ -29,11 +29,11 @@
             [snippets addObject:snippet];
         }];
         NSString *text = [NSString stringWithFormat:classInArrayFormart, [snippets componentsJoinedByString:@",\n             "]];
-        implementationBody = [implementationBody stringByAppendingString:text];
+        implementationBody = [implementationBody stringByAppendingFormat:@"%@\n", text];
     }
     
     if (self.keyMapping.allKeys.count > 0) {
-        implementationBody = [implementationBody stringByAppendingString:@"\n\n"];
+        implementationBody = [implementationBody stringByAppendingString:@"\n"];
         
         NSString *keyMappingFormart = [@"keyMapping.txt" bundleFileContent];
         NSMutableArray *snippets = [NSMutableArray array];
