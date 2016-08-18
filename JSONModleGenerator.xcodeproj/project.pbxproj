@@ -51,8 +51,6 @@
 /* Begin PBXFileReference section */
 		C30B58061CCB12CA00511D05 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localization.strings"; sourceTree = "<group>"; };
 		C30B58071CCB131300511D05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
-		C30B580B1CCB134400511D05 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C30B58101CCB147D00511D05 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		C30B58111CCB14FF00511D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localization.strings; sourceTree = "<group>"; };
 		C30B58121CCB151500511D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C311189A1CCA617300BACF95 /* JSONModleGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONModleGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -424,8 +422,6 @@
 		C31118A81CCA617300BACF95 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C30B580B1CCB134400511D05 /* en */,
-				C30B58101CCB147D00511D05 /* zh-Hans */,
 				C30B58121CCB151500511D05 /* Base */,
 			);
 			name = Main.storyboard;

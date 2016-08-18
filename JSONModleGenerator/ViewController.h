@@ -16,6 +16,7 @@
 @property (weak) IBOutlet NSTextField *authorField;
 @property (weak) IBOutlet NSTextField *organizationField;
 @property (weak) IBOutlet NSTextField *superClassNameField;
+@property (weak) IBOutlet NSPathControl *pathControl;
 
 @end
 

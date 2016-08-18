@@ -11,7 +11,8 @@
 #import "JSONGeneratorParameter.h"
 #import "NSString+Trims.h"
 
-NSString *const kFileCommentInfoSaveKey = @"kFileCommentInfo";
+NSString * const kFileCommentInfoSaveKey = @"kFileCommentInfo";
+NSString * const kFileSaveDocumentURLKey = @"kFileSaveDocumentURL";
 
 @interface ViewController ()
 
@@ -44,6 +45,13 @@ NSString *const kFileCommentInfoSaveKey = @"kFileCommentInfo";
         NSTextField *field = _storedFieldArray[i];
         field.stringValue = _fileCommentInfo[i];
     }
+
+    _pathControl.allowedTypes = @[@"public.folder"];
+
+    NSString *urlString = [[NSUserDefaults standardUserDefaults] objectForKey:kFileSaveDocumentURLKey];
+    if (urlString) {
+        _pathControl.URL = [NSURL URLWithString:urlString];
+    }
 }
 
 - (IBAction)generateJSON:(id)sender {
@@ -73,6 +81,9 @@ NSString *const kFileCommentInfoSaveKey = @"kFileCommentInfo";
     }
     
     [self saveFileCommentInfoIfChanged];
+
+    [[NSUserDefaults standardUserDefaults] setObject:_pathControl.URL.absoluteString forKey:kFileSaveDocumentURLKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     if ([_jsonTextView.string trimmingWhitespaceAndNewlines].length == 0) {
         [self alertErrorText:NSLocalizedString(@"请输入JSON数据", nil)];
@@ -80,14 +91,14 @@ NSString *const kFileCommentInfoSaveKey = @"kFileCommentInfo";
     }
     
     JSONGeneratorParameter *parameter = [[JSONGeneratorParameter alloc] init];
-    parameter.json = _jsonTextView.string;
     parameter.fileName = _fileNameField.stringValue;
     parameter.projectName = _projectNameField.stringValue;
     parameter.author = _authorField.stringValue;
     parameter.organization = _organizationField.stringValue;
     parameter.superClassName = _superClassNameField.stringValue;
+    parameter.saveURL = _pathControl.URL;
     
-    [_generator generateWithParameter:parameter];
+    [_generator generateWithText:_jsonTextView.string parameter:parameter];
 }
 
 - (void)saveFileCommentInfoIfChanged {

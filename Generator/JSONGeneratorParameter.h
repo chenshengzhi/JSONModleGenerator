@@ -10,11 +10,11 @@
 
 @interface JSONGeneratorParameter : NSObject
 
-@property (nonatomic, strong) id json;
 @property (nonatomic, strong) NSString *fileName;
 @property (nonatomic, strong) NSString *projectName;
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) NSString *organization;
 @property (nonatomic, strong) NSString *superClassName;
+@property (nonatomic, strong) NSURL *saveURL;
 
 @end

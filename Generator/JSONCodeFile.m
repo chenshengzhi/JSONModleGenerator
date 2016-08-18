@@ -32,11 +32,11 @@
     return self;
 }
 
-- (void)parse {
-    if (isDictionary(self.parameter.json)) {
-        [self parseDictionaryElementWithClassName:self.parameter.fileName subJSON:self.parameter.json];
-    } else if (isArray(self.parameter.json)) {
-        [self parseArrayElementWithClassName:self.parameter.fileName subJSON:self.parameter.json];
+- (void)parseJSON:(id)json {
+    if (isDictionary(json)) {
+        [self parseDictionaryElementWithClassName:self.parameter.fileName subJSON:json];
+    } else if (isArray(json)) {
+        [self parseArrayElementWithClassName:self.parameter.fileName subJSON:json];
     } else {
         NSAssert(NO, @"not support this model");
     }
@@ -59,7 +59,7 @@
 
     NSArray *sortedKeys = [subJson.allKeys sortedArrayUsingSelector:@selector(compare:)];
     for (NSString *key in sortedKeys) {
-        id obj = subJson[key];
+        id value = subJson[key];
         NSString *modelKey = key;
         if ([modelKey containsString:@"_"]) {
             modelKey = [modelKey littleCamelCase];
@@ -69,43 +69,48 @@
             keyMapping[modelKey]  = key;
         }
 
-        if (isDictionary(obj)) {
+        if (isDictionary(value)) {
             NSString *newClassName = [className stringByAppendingString:[modelKey capitalizedString]];
-            [self parseDictionaryElementWithClassName:newClassName subJSON:obj];
+            [self parseDictionaryElementWithClassName:newClassName subJSON:value];
             [propertys appendFormat:@"@property (nonatomic, strong) %@ *%@;\n\n", newClassName, modelKey];
-        } else if (isArray(obj)) {
+        } else if (isArray(value)) {
             NSString *newClassName = [className stringByAppendingString:[modelKey capitalizedString]];
             [propertys appendString:[NSString stringWithFormat:@"@property (nonatomic, strong) NSArray *%@;\n\n", modelKey]];
-            if ([self parseArrayElementWithClassName:newClassName subJSON:obj]) {
+            if ([self parseArrayElementWithClassName:newClassName subJSON:value]) {
                 classInArray[modelKey] = newClassName;
             }
         } else {
-            [propertys appendFormat:@"@property (nonatomic, strong) NSString *%@;\n\n", modelKey];
+            if ([value isKindOfClass:[NSNumber class]]) {
+                NSString *typeName = JSONTypeNameFromNumber(value);
+                [propertys appendFormat:@"@property (nonatomic) %@ %@;\n\n", typeName, modelKey];
+            } else {
+                [propertys appendFormat:@"@property (nonatomic, strong) NSString *%@;\n\n", modelKey];
+            }
         }
     }
-    
+
     JSONCodeFileElement *element = [[JSONCodeFileElement alloc] init];
     element.className = className;
     element.superClassName = self.parameter.superClassName;
     element.propertys = [propertys trimmingWhitespaceAndNewlines];
     element.classInArray = classInArray;
     element.keyMapping = keyMapping;
-    
+
     [self.classArray addObject:element];
     return YES;
 }
 
-- (void)generateCodeFile {
-    [self parse];
-    
+- (void)generateCodeFileWithJSON:(id)json {
+    [self parseJSON:json];
+
     NSDate *today = [NSDate date];
-    NSDateFormatter *formatter = [self.class dateFormatter];
+    NSDateFormatter *formatter = JSONShareDateFormartter();
     [formatter setDateFormat:@"yy/MM/dd"];
     NSString *dateString = [formatter stringFromDate:today];
-    
+
     [formatter setDateFormat:@"yyyy"];
     NSString *yearString = [formatter stringFromDate:today];
-    
+
     NSString *fileComment = [NSString stringWithFormat:
                              [@"fileComment.txt" bundleFileContent],
                              self.parameter.fileName,
@@ -114,42 +119,42 @@
                              dateString,
                              yearString,
                              self.parameter.organization];
-    
+
     NSMutableString *interface = [NSMutableString string];
     NSMutableString *implementation = [NSMutableString string];
-    
+
     [interface appendString:fileComment];
     [interface appendString:@"\n\n#import <Foundation/Foundation.h>"];
 
     if (self.parameter.superClassName) {
         [interface appendFormat:@"\n#import \"%@.h\"", self.parameter.superClassName];
     }
-    
+
     [implementation appendString:fileComment];
     [implementation appendFormat:@"\n\n#import \"%@.h\"", self.parameter.fileName];
-    
+
     for (JSONCodeFileElement *ele in self.classArray) {
         [interface appendString:[ele interfaceCode]];
         [implementation appendString:[ele implementationCode]];
     }
-    
-    NSString *desktop = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES)[0];
-    
-    [interface writeToFile:[NSString stringWithFormat:@"%@/%@.h", desktop, self.parameter.fileName]
-                atomically:YES
-                  encoding:NSUTF8StringEncoding
-                     error:nil];
-    
-    [implementation writeToFile:[NSString stringWithFormat:@"%@/%@.m", desktop, self.parameter.fileName]
-                     atomically:YES
-                       encoding:NSUTF8StringEncoding
-                          error:nil];
+
+    NSURL *url = [self.parameter.saveURL URLByAppendingPathComponent:self.parameter.fileName];
+
+    NSError *error = nil;
+    [interface writeToURL:[url URLByAppendingPathExtension:@"h"]
+               atomically:YES
+                 encoding:NSUTF8StringEncoding
+                    error:&error];
+
+    [implementation writeToURL:[url URLByAppendingPathExtension:@"m"]
+                    atomically:YES
+                      encoding:NSUTF8StringEncoding
+                         error:&error];
 }
 
 
 static NSDateFormatter *_shareDateFormartter;
-
-+ (NSDateFormatter *)dateFormatter {
+NSDateFormatter *JSONShareDateFormartter() {
     if (!_shareDateFormartter) {
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
@@ -157,6 +162,37 @@ static NSDateFormatter *_shareDateFormartter;
         });
     }
     return _shareDateFormartter;
+}
+
+static NSArray *_numberTypeNameArray;
+NSString *JSONTypeNameFromNumber(NSNumber *number) {
+    if (!_numberTypeNameArray) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _numberTypeNameArray = @[
+                                     @"",
+                                     @"SInt8",
+                                     @"SInt16",
+                                     @"SInt32",
+                                     @"SInt64",
+                                     @"Float32",
+                                     @"Float64",
+
+                                     @"bool",
+                                     @"short",
+                                     @"int",
+                                     @"long",
+                                     @"long long",
+                                     @"float",
+                                     @"double",
+
+                                     @"CFIndex",
+                                     @"NSInteger",
+                                     @"CGFloat",
+                                     ];
+        });
+    }
+    return _numberTypeNameArray[CFNumberGetType((__bridge CFNumberRef)number)];
 }
 
 @end

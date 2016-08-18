@@ -11,6 +11,6 @@
 
 @interface JSONGenerator : NSObject
 
-- (void)generateWithParameter:(JSONGeneratorParameter *)parameter;
+- (void)generateWithText:(NSString *)text parameter:(JSONGeneratorParameter *)parameter;
 
 @end

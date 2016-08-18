@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -670,57 +670,41 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="828" height="493"/>
+                        <rect key="frame" x="0.0" y="0.0" width="836" height="493"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oc0-JO-SXJ" userLabel="jsonTextView">
-                                <rect key="frame" x="0.0" y="0.0" width="588" height="493"/>
+                                <rect key="frame" x="0.0" y="0.0" width="596" height="493"/>
                                 <clipView key="contentView" id="q8v-6n-3gb">
-                                    <rect key="frame" x="1" y="1" width="571" height="491"/>
+                                    <rect key="frame" x="1" y="1" width="579" height="491"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Tp7-Ox-Mpg">
-                                            <rect key="frame" x="0.0" y="0.0" width="571" height="491"/>
+                                        <textView importsGraphics="NO" baseWritingDirection="leftToRight" findStyle="panel" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="Tp7-Ox-Mpg">
+                                            <rect key="frame" x="0.0" y="0.0" width="579" height="1502"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="571" height="491"/>
-                                            <size key="maxSize" width="588" height="10000000"/>
+                                            <size key="minSize" width="579" height="491"/>
+                                            <size key="maxSize" width="596" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment>
-                                                    <mutableString key="content">{
-    epage = 3;
-    list = (
-        {
-            account = "100000.00";
-            "borrow_account_scale" = 0;
-            "borrow_account_wait" = (
-                {
-                    normalFloat = 2;
-                    normalInt = 2;
-                    normalLong = 24;
-                }
-            );
-            "borrow_apr" = {
-                account = "100000.00";
-                "borrow_account_scale" = 0;
-                "borrow_account_wait" = "100000.000000";
-                "borrow_apr" = "24.00";
-            }
-        }
-    );
-    page = 1;
-    total = 281;
-    "total_page" = 94;
-}</mutableString>
+                                                    <mutableString key="content">{"id":26096,"subLemmaId":7373792,"newLemmaId":27263,"key":"\u94f6\u9b42","desc":"\u7a7a\u77e5\u82f1\u79cb\u521b\u4f5c\u7684\u6f2b\u753b","title":"\u94f6\u9b42","card":[{"key":"m21_bookname","name":"\u4e2d\u6587\u540d","value":["\u94f6\u9b42"],"format":["\u94f6\u9b42"]},{"key":"m21_originalname","name":"\u539f\u7248\u540d\u79f0","value":["\u9280\u9b42"],"format":["\u9280\u9b42"]},{"key":"m21_othername","name":"\u5176\u4ed6\u540d\u79f0","value":["GINTAMA\uff0c\u304e\u3093\u305f\u307e"],"format":["GINTAMA\uff0c\u304e\u3093\u305f\u307e"]},{"key":"m21_author","name":"\u4f5c\u8005","value":["&lt;a target=_blank href=\"\/view\/87122.htm\"&gt;\u7a7a\u77e5\u82f1\u79cb&lt;\/a&gt;"],"format":["&lt;a target=_blank href=\"\/view\/87122.htm\"&gt;\u7a7a\u77e5\u82f1\u79cb&lt;\/a&gt;"]},{"key":"m21_booktype","name":"\u7c7b\u578b","value":["\u5e55\u672b\u3001\u641e\u7b11\u3001\u79d1\u5e7b\u3001\u52a8\u4f5c"],"format":["\u5e55\u672b\u3001\u641e\u7b11\u3001\u79d1\u5e7b\u3001\u52a8\u4f5c"]},{"key":"m21_bookregion","name":"\u5730\u533a","value":["\u65e5\u672c"],"format":["\u65e5\u672c"]},{"key":"m21_seriesmagazine","name":"\u8fde\u8f7d\u6742\u5fd7","value":["\u300a&lt;a target=_blank href=\"\/view\/473852.htm\"&gt;\u5468\u520a\u5c11\u5e74JUMP&lt;\/a&gt;\u300b"],"format":["\u300a&lt;a target=_blank href=\"\/view\/473852.htm\"&gt;\u5468\u520a\u5c11\u5e74JUMP&lt;\/a&gt;\u300b"]},{"key":"m21_seriesnum","name":"\u63ed\u8f7d\u53f7","value":["2004\u5e742\u53f7"],"format":["2004\u5e742\u53f7"]},{"key":"m21_seriesperiod","name":"\u8fde\u8f7d\u671f\u95f4","value":["2003\u5e7412\u6708\uff0d\u8fde\u8f7d\u4e2d"],"format":["2003\u5e7412\u6708\uff0d\u8fde\u8f7d\u4e2d"]},{"key":"m21_press","name":"\u51fa\u7248\u793e","value":["&lt;a target=_blank href=\"\/view\/30883.htm\"&gt;\u96c6\u82f1\u793e&lt;\/a&gt;"],"format":["&lt;a target=_blank href=\"\/view\/30883.htm\"&gt;\u96c6\u82f1\u793e&lt;\/a&gt;"]},{"key":"m21_publishperiod","name":"\u51fa\u7248\u671f\u95f4","value":["2004\u5e744\u6708\uff0d"],"format":["2004\u5e744\u6708\uff0d"]},{"key":"m21_volumes","name":"\u5355\u884c\u672c\u518c\u6570","value":["64\u5377\uff082016\u5e745\u6708\uff09"],"format":["64\u5377\uff082016\u5e745\u6708\uff09"]},{"key":"m21_otherpress","name":"\u5176\u4ed6\u51fa\u7248\u793e","value":["\u4e2d\u56fd\u53f0\u6e7e\uff1a&lt;a target=_blank href=\"\/view\/1353966.htm\"&gt;\u4e1c\u7acb\u51fa\u7248\u793e&lt;\/a&gt;","\u4e2d\u56fd\u9999\u6e2f\uff1a&lt;a target=_blank href=\"\/view\/6941397.htm\"&gt;\u6b63\u6587\u793e&lt;\/a&gt;","\u4e2d\u56fd\u5927\u9646\uff1a&lt;a target=_blank href=\"\/item\/%E8%BF%9E%E7%8E%AF%E7%94%BB%E5%87%BA%E7%89%88%E7%A4%BE\"&gt;\u8fde\u73af\u753b\u51fa\u7248\u793e&lt;\/a&gt;\uff08\u51fa\u7248\uff09\u3001\u5317\u4eac\u4e2d\u5c11\u52a8\u6f2b\uff08\u53d1\u884c\uff09","\u65b0\u52a0\u5761\uff1a\u521b\u827a\u51fa\u7248\u793e"],"format":["\u4e2d\u56fd\u53f0\u6e7e\uff1a&lt;a target=_blank href=\"\/view\/1353966.htm\"&gt;\u4e1c\u7acb\u51fa\u7248\u793e&lt;\/a&gt;","\u4e2d\u56fd\u9999\u6e2f\uff1a&lt;a target=_blank href=\"\/view\/6941397.htm\"&gt;\u6b63\u6587\u793e&lt;\/a&gt;","\u4e2d\u56fd\u5927\u9646\uff1a&lt;a target=_blank href=\"\/item\/%E8%BF%9E%E7%8E%AF%E7%94%BB%E5%87%BA%E7%89%88%E7%A4%BE\"&gt;\u8fde\u73af\u753b\u51fa\u7248\u793e&lt;\/a&gt;\uff08\u51fa\u7248\uff09\u3001\u5317\u4eac\u4e2d\u5c11\u52a8\u6f2b\uff08\u53d1\u884c\uff09","\u65b0\u52a0\u5761\uff1a\u521b\u827a\u51fa\u7248\u793e"]},{"key":"m21_ext_0","name":"\u7f51\u7edc\u8fde\u8f7d","value":["&lt;a target=_blank href=\"\/view\/7833310.htm\"&gt;\u817e\u8baf\u52a8\u6f2b&lt;\/a&gt;\uff08\u4e2d\u56fd\u5927\u9646\uff09"],"format":["&lt;a target=_blank href=\"\/view\/7833310.htm\"&gt;\u817e\u8baf\u52a8\u6f2b&lt;\/a&gt;\uff08\u4e2d\u56fd\u5927\u9646\uff09"]}],"image":"http:\/\/imgsrc.baidu.com\/baike\/pic\/item\/8d5494eef01f3a295021f8289825bc315d607c6e.jpg","src":"8d5494eef01f3a295021f8289825bc315d607c6e","imageHeight":768,"imageWidth":512,"isSummaryPic":"y","abstract":"\u300a\u94f6\u9b42\u300b\u662f\u7531\u65e5\u672c\u6f2b\u753b\u5bb6\u7a7a\u77e5\u82f1\u79cb\u521b\u4f5c\u7684\u5c11\u5e74\u6f2b\u753b\u4f5c\u54c1\uff0c\u4e8e2004\u5e742\u53f7\u7684\u300a\u5468\u520a\u5c11\u5e74Jump\u300b\u5f00\u59cb\u8fde\u8f7d\u30022006\u5e744\u67084\u65e5\u8d77\uff0c\u7531\u65e5\u5347\u52a8\u753b\u6539\u7f16\u7684\u540c\u540d\u7535\u89c6\u52a8\u753b\u5f00\u59cb\u5728\u4e1c\u4eac\u7535\u89c6\u53f0\u653e\u9001\u3002\u622a\u81f32015\u5e7411\u6708\uff0c\u300a\u94f6\u9b42\u300b\u5355\u884c\u672c\u7d2f\u8ba1\u53d1\u884c\u91cf\u7a81\u78344800\u4e07\u518c\u3002","moduleIds":[114323248,114323249,114323250,114323251,114323252,114323253,114323254,114323255,114323256,114323257,114323258,114323259,114323260,114323261,114323262,114323263],"url":"http:\/\/baike.baidu.com\/subview\/26096\/7373792.htm","wapUrl":"http:\/\/wapbaike.baidu.com\/subview\/26096\/7373792.htm","hasOther":1,"totalUrl":"http:\/\/baike.baidu.com\/view\/26096.htm","catalog":["&lt;a href='http:\/\/baike.baidu.com\/subview\/26096\/7373792.htm#1'&gt;\u521b\u4f5c\u80cc\u666f&lt;\/a&gt;","&lt;a href='http:\/\/baike.baidu.com\/subview\/26096\/7373792.htm#2'&gt;\u5267\u60c5\u7b80\u4ecb&lt;\/a&gt;","&lt;a href='http:\/\/baike.baidu.com\/subview\/26096\/7373792.htm#3'&gt;\u767b\u573a\u89d2\u8272&lt;\/a&gt;","&lt;a href='http:\/\/baike.baidu.com\/subview\/26096\/7373792.htm#4'&gt;\u7528\u8bed\u89e3\u8bf4&lt;\/a&gt;"],"wapCatalog":["&lt;a href='http:\/\/wapbaike.baidu.com\/subview\/26096\/7373792.htm#1'&gt;\u521b\u4f5c\u80cc\u666f&lt;\/a&gt;","&lt;a href='http:\/\/wapbaike.baidu.com\/subview\/26096\/7373792.htm#2'&gt;\u5267\u60c5\u7b80\u4ecb&lt;\/a&gt;","&lt;a href='http:\/\/wapbaike.baidu.com\/subview\/26096\/7373792.htm#3'&gt;\u767b\u573a\u89d2\u8272&lt;\/a&gt;","&lt;a href='http:\/\/wapbaike.baidu.com\/subview\/26096\/7373792.htm#4'&gt;\u7528\u8bed\u89e3\u8bf4&lt;\/a&gt;"],"logo":"http:\/\/img.baidu.com\/img\/baike\/logo-baike.gif","copyrights":"\u4ee5\u4e0a\u5185\u5bb9\u6765\u81ea\u767e\u5ea6\u767e\u79d1\u5e73\u53f0\uff0c\u7531\u767e\u5ea6\u767e\u79d1\u7f51\u53cb\u521b\u4f5c\u3002","customImg":""}
+</mutableString>
                                                     <attributes>
-                                                        <font key="NSFont" size="14" name="Monaco"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                        <font key="NSFont" size="13" name="Courier"/>
+                                                        <real key="NSKern" value="0.0"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                            <tabStops/>
+                                                        </paragraphStyle>
+                                                        <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                        <real key="NSStrokeWidth" value="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="571" height="491"/>
-                                            <size key="maxSize" width="588" height="10000000"/>
+                                            <size key="minSize" width="579" height="491"/>
+                                            <size key="maxSize" width="596" height="10000000"/>
                                         </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -730,12 +714,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="m0o-7I-Moq">
-                                    <rect key="frame" x="572" y="1" width="15" height="491"/>
+                                    <rect key="frame" x="580" y="1" width="15" height="491"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="h1i-Dg-9Iv" userLabel="fileName">
-                                <rect key="frame" x="608" y="449" width="200" height="24"/>
+                                <rect key="frame" x="616" y="449" width="200" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="rGa-Wv-K4w"/>
                                 </constraints>
@@ -749,7 +733,7 @@
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="IW6-Ir-CeC" userLabel="projectName">
-                                <rect key="frame" x="608" y="415" width="200" height="24"/>
+                                <rect key="frame" x="616" y="415" width="200" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Nm7-sW-PPq"/>
                                 </constraints>
@@ -763,7 +747,7 @@
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="owT-8y-gqn" userLabel="author">
-                                <rect key="frame" x="608" y="381" width="200" height="24"/>
+                                <rect key="frame" x="616" y="381" width="200" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Mqb-7U-aqo"/>
                                 </constraints>
@@ -777,7 +761,7 @@
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="pEN-qQ-dSt" userLabel="organization">
-                                <rect key="frame" x="608" y="347" width="200" height="24"/>
+                                <rect key="frame" x="616" y="347" width="200" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Pub-GD-zdQ"/>
                                 </constraints>
@@ -791,7 +775,7 @@
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="pt7-iJ-fsJ" userLabel="superClassName">
-                                <rect key="frame" x="608" y="313" width="200" height="24"/>
+                                <rect key="frame" x="616" y="313" width="200" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="PO3-KS-ydf"/>
                                 </constraints>
@@ -805,7 +789,7 @@
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wli-hM-QA3" userLabel="generateJSON">
-                                <rect key="frame" x="706" y="274" width="102" height="19"/>
+                                <rect key="frame" x="714" y="244" width="102" height="19"/>
                                 <buttonCell key="cell" type="roundRect" title="generateFiles" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="n3j-H5-O7P">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="14"/>
@@ -814,17 +798,27 @@
                                     <action selector="generateJSON:" target="XfG-lQ-9wD" id="OnN-4o-v8V"/>
                                 </connections>
                             </button>
+                            <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8d-Bc-d0Q">
+                                <rect key="frame" x="613" y="279" width="206" height="26"/>
+                                <pathCell key="cell" selectable="YES" editable="YES" alignment="left" placeholderString="" pathStyle="popUp" id="yrj-Oh-SHW">
+                                    <font key="font" metaFont="system"/>
+                                    <url key="url" string="file:///"/>
+                                </pathCell>
+                            </pathControl>
                         </subviews>
                         <constraints>
                             <constraint firstItem="h1i-Dg-9Iv" firstAttribute="leading" secondItem="Oc0-JO-SXJ" secondAttribute="trailing" constant="20" id="23N-Yf-tWu"/>
                             <constraint firstItem="Oc0-JO-SXJ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="53o-DQ-huI"/>
+                            <constraint firstItem="t8d-Bc-d0Q" firstAttribute="trailing" secondItem="pt7-iJ-fsJ" secondAttribute="trailing" id="6hd-Kd-KWr"/>
                             <constraint firstItem="pt7-iJ-fsJ" firstAttribute="top" secondItem="pEN-qQ-dSt" secondAttribute="bottom" constant="10" id="ELS-Lx-vqa"/>
                             <constraint firstItem="Oc0-JO-SXJ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="JZq-zt-5ct"/>
                             <constraint firstItem="pEN-qQ-dSt" firstAttribute="top" secondItem="owT-8y-gqn" secondAttribute="bottom" constant="10" id="Syf-7H-Uil"/>
+                            <constraint firstItem="t8d-Bc-d0Q" firstAttribute="leading" secondItem="pt7-iJ-fsJ" secondAttribute="leading" id="Tqo-ui-dUI"/>
                             <constraint firstAttribute="bottom" secondItem="Oc0-JO-SXJ" secondAttribute="bottom" id="VMi-Pn-mlc"/>
                             <constraint firstItem="h1i-Dg-9Iv" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="VNS-H7-doc"/>
-                            <constraint firstItem="wli-hM-QA3" firstAttribute="top" secondItem="pt7-iJ-fsJ" secondAttribute="bottom" constant="20" id="YFT-IN-bL8"/>
                             <constraint firstItem="owT-8y-gqn" firstAttribute="leading" secondItem="h1i-Dg-9Iv" secondAttribute="leading" id="aDL-3x-YTI"/>
+                            <constraint firstItem="wli-hM-QA3" firstAttribute="top" secondItem="t8d-Bc-d0Q" secondAttribute="bottom" constant="20" id="cSb-ib-dZ2"/>
+                            <constraint firstItem="t8d-Bc-d0Q" firstAttribute="top" secondItem="pt7-iJ-fsJ" secondAttribute="bottom" constant="10" id="eXA-WO-KvO"/>
                             <constraint firstItem="pEN-qQ-dSt" firstAttribute="leading" secondItem="h1i-Dg-9Iv" secondAttribute="leading" id="ez4-va-LXY"/>
                             <constraint firstItem="owT-8y-gqn" firstAttribute="top" secondItem="IW6-Ir-CeC" secondAttribute="bottom" constant="10" id="gBC-J6-s78"/>
                             <constraint firstItem="pt7-iJ-fsJ" firstAttribute="leading" secondItem="h1i-Dg-9Iv" secondAttribute="leading" id="gdE-Yf-QrP"/>
@@ -839,13 +833,14 @@
                         <outlet property="fileNameField" destination="h1i-Dg-9Iv" id="Dxf-WO-crt"/>
                         <outlet property="jsonTextView" destination="Tp7-Ox-Mpg" id="QbK-2g-X3b"/>
                         <outlet property="organizationField" destination="pEN-qQ-dSt" id="1wY-Fb-CYL"/>
+                        <outlet property="pathControl" destination="t8d-Bc-d0Q" id="iVq-dR-xre"/>
                         <outlet property="projectNameField" destination="IW6-Ir-CeC" id="yxG-Br-7ka"/>
                         <outlet property="superClassNameField" destination="pt7-iJ-fsJ" id="xY5-Ta-ADg"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="825.5"/>
+            <point key="canvasLocation" x="63" y="810.5"/>
         </scene>
     </scenes>
 </document>

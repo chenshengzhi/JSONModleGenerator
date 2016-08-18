@@ -13,6 +13,6 @@
 
 @property (nonatomic, strong) JSONGeneratorParameter *parameter;
 
-- (void)generateCodeFile;
+- (void)generateCodeFileWithJSON:(id)json;
 
 @end
