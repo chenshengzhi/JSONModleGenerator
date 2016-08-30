@@ -70,14 +70,16 @@
         }
 
         if (isDictionary(value)) {
-            NSString *newClassName = [className stringByAppendingString:[modelKey capitalizedString]];
+            NSString *newClassName = [className stringByAppendingString:[key bigCamelCase]];
             [self parseDictionaryElementWithClassName:newClassName subJSON:value];
             [propertys appendFormat:@"@property (nonatomic, strong) %@ *%@;\n\n", newClassName, modelKey];
         } else if (isArray(value)) {
-            NSString *newClassName = [className stringByAppendingString:[modelKey capitalizedString]];
-            [propertys appendString:[NSString stringWithFormat:@"@property (nonatomic, strong) NSArray *%@;\n\n", modelKey]];
+            NSString *newClassName = [className stringByAppendingString:[key bigCamelCase]];
             if ([self parseArrayElementWithClassName:newClassName subJSON:value]) {
                 classInArray[modelKey] = newClassName;
+                [propertys appendString:[NSString stringWithFormat:@"@property (nonatomic, strong) NSArray<%@ *> *%@;\n\n", newClassName, modelKey]];
+            } else {
+                [propertys appendString:[NSString stringWithFormat:@"@property (nonatomic, strong) NSArray *%@;\n\n", modelKey]];
             }
         } else {
             if ([value isKindOfClass:[NSNumber class]]) {
