@@ -64,8 +64,9 @@
         if ([modelKey containsString:@"_"]) {
             modelKey = [modelKey littleCamelCase];
             keyMapping[modelKey] = key;
-        } else if ([modelKey isEqualToString:@"id"]) {
-            modelKey = @"ID";
+        }
+        if ([modelKey hasSuffix:@"id"]) {
+            modelKey = [[modelKey substringToIndex:modelKey.length-2] stringByAppendingString:@"ID"];
             keyMapping[modelKey]  = key;
         }
 
